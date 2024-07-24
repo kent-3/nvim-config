@@ -50,11 +50,17 @@ return {
       },
       rust_analyzer = {
         settings = {
-          checkOnSave = true,
-          procMacro = {
-            ignored = {
-              leptos_macro = {
-                "server",
+          ["rust-analyzer"] = {
+            checkOnSave = true,
+            cargo = {
+              features = "all",
+              extraArgs = { "-Z", "unstable-options" },
+            },
+            procMacro = {
+              ignored = {
+                leptos_macro = {
+                  "server",
+                },
               },
             },
           },
