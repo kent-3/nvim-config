@@ -54,7 +54,7 @@ return {
             checkOnSave = true,
             cargo = {
               features = "all",
-              extraArgs = { "-Z", "unstable-options" },
+              -- extraArgs = { "-Z", "unstable-options" },
             },
             procMacro = {
               ignored = {
