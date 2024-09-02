@@ -51,6 +51,7 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
+            buildScripts = { enabled = true },
             checkOnSave = true,
             cargo = {
               features = "all",

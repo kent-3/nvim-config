@@ -9,14 +9,23 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "kanagawa",
+    colorscheme = "habamax",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = { bg = "#000000" },
       },
-      astrodark = { -- a table of overrides/changes when applying the astrotheme theme
+      astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
+      },
+      habamax = { -- a table of overrides/changes when applying the habamax theme
+        FloatBorder = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        WinSeparator = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        VertSplit = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        TabLine = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        TabLineSel = { bold = true, fg = "#767676", bg = "#1c1c1c" },
+        TabLineFill = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        StatusLine = { ctermfg = 250, ctermbg = 236, fg = "#bcbcbc", bg = "#303030" },
       },
     },
     -- Icons can be configured throughout the interface

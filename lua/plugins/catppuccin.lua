@@ -4,7 +4,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     version = false,
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       -- Default options:
