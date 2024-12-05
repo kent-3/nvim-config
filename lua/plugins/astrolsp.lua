@@ -38,6 +38,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      -- "rust-analyzer",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -49,12 +50,16 @@ return {
         settings = { includeLanguages = { rust = "html" } },
       },
       rust_analyzer = {
+        cmd = { "/home/kent/.cargo/bin/rust-analyzer" },
         settings = {
           ["rust-analyzer"] = {
             buildScripts = { enabled = true },
             checkOnSave = true,
+            -- diagnostics = {
+            --   enable = false,
+            -- },
             cargo = {
-              features = "all",
+              -- features = "all",
               -- extraArgs = { "-Z", "unstable-options" },
             },
             procMacro = {
