@@ -39,6 +39,7 @@ return {
     servers = {
       -- "pyright"
       -- "rust-analyzer",
+      "dartls"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
