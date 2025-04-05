@@ -39,7 +39,8 @@ return {
     servers = {
       -- "pyright"
       -- "rust-analyzer",
-      "dartls"
+      "dartls",
+      "noir_lsp",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -73,6 +74,17 @@ return {
           },
         },
       },
+      noir_lsp = {
+        cmd = { "nargo", "lsp" },
+        filetypes = { "noir" },
+        root_dir = require("lspconfig").util.root_pattern("Nargo.toml", ".git"),
+        settings = {},
+      },
+      -- dartls = {
+      --   cmd = { "/home/kent/.local/flutter/bin/dart", "language-server", "--protocol=lsp" },
+      --   filetypes = { "dart" },
+      --   settings = {},
+      -- },
     },
     -- customize how language servers are attached
     handlers = {
