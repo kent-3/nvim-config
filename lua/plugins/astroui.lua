@@ -19,13 +19,27 @@ return {
         -- Normal = { bg = "#000000" },
       },
       habamax = { -- a table of overrides/changes when applying the habamax theme
-        FloatBorder = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
+        NormalFloat = { bg = "#303030" },
+        FloatBorder = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#303030" },
         WinSeparator = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
         VertSplit = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
         TabLine = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
         TabLineSel = { bold = true, fg = "#767676", bg = "#1c1c1c" },
         TabLineFill = { ctermfg = 243, ctermbg = 234, fg = "#767676", bg = "#1c1c1c" },
         StatusLine = { ctermfg = 250, ctermbg = 236, fg = "#bcbcbc", bg = "#303030" },
+      },
+      ["rose-pine"] = {
+        -- SnacksDashboardHeader = { fg = "#e0def4", bold = true },
+        -- SnacksDashboardFooter = { fg = "#e0def4", bold = true },
+      },
+    },
+    lazygit = {
+      -- theme_path = vim.fs.normalize(vim.fn.stdpath "cache" .. "/lazygit-theme.yml"),
+      -- config = { os = { editPreset = "nvim-remote" } },
+      theme = {
+        -- activeBorderColor = { fg = "MatchParen", bold = true },
+        -- activeBorderColor = { fg = "#FFFFFF", bold = true },
+        -- selectedLineBgColor = { bg = "Visual" },
       },
     },
     -- Icons can be configured throughout the interface
