@@ -40,11 +40,11 @@ return {
       -- "pyright"
       -- "rust-analyzer",
       "dartls",
-      "noir_lsp",
     },
-    -- customize language server configuration options passed to `lspconfig`
+    -- customize language server configuration options passed to `vim.lsp.config`
     ---@diagnostic disable: missing-fields
     config = {
+      lua_ls = { settings = { Lua = { format = { enable = false } } } }, -- migrated from .neoconf.json
       cssls = { settings = { css = { validate = false, lint = { unknownAtRules = "ignore" } } } },
       tailwindcss = {
         filetypes = { "html", "css", "javascript", "typescript", "svelte", "rust" },
@@ -74,12 +74,6 @@ return {
           },
         },
       },
-      noir_lsp = {
-        cmd = { "nargo", "lsp" },
-        filetypes = { "noir" },
-        root_dir = require("lspconfig").util.root_pattern("Nargo.toml", ".git"),
-        settings = {},
-      },
       -- dartls = {
       --   cmd = { "/home/kent/.local/flutter/bin/dart", "language-server", "--protocol=lsp" },
       --   filetypes = { "dart" },
@@ -88,12 +82,12 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+      -- the "*" key sets the default handler; functions take the server name
+      -- ["*"] = function(server) vim.lsp.enable(server) end
 
-      -- the key is the server that is being setup with `lspconfig`
+      -- the key is the server that is being enabled with `vim.lsp.enable`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      -- pyright = function(server) vim.lsp.enable(server) end -- or a custom handler function can be passed
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
@@ -130,7 +124,7 @@ return {
           function() require("astrolsp.toggles").buffer_semantic_tokens() end,
           desc = "Toggle LSP semantic highlight (buffer)",
           cond = function(client)
-            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+            return client:supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
           end,
         },
       },
